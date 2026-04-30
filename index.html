@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACA-Display | Touch Solution</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #121b2e;
+      --accent: #2dd4bf;
+      --text: #e6edf7;
+      --muted: #9fb0ca;
+      --border: #284062;
+      --danger: #fb7185;
+      --ok: #34d399;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1220 0%, #0e1526 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 72px 20px 48px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    h1 { font-size: clamp(34px, 5vw, 54px); margin: 0; }
+
+    .sub {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px 72px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h2 { margin-top: 0; font-size: 24px; }
+
+    .product-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .product-list li {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .product-list strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+      color: #ccf8f2;
+    }
+
+    form { display: grid; gap: 12px; }
+
+    label { font-weight: 600; font-size: 14px; }
+
+    input, textarea, select {
+      width: 100%;
+      margin-top: 6px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0d1728;
+      color: var(--text);
+      font: inherit;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    button {
+      margin-top: 8px;
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 16px;
+      font-weight: 700;
+      background: var(--accent);
+      color: #07211d;
+      cursor: pointer;
+    }
+
+    button:disabled { opacity: 0.6; cursor: wait; }
+
+    .status {
+      min-height: 22px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .status.error { color: var(--danger); }
+    .status.success { color: var(--ok); }
+
+    footer {
+      text-align: center;
+      padding: 14px 20px 34px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">ACA-Display</div>
+    <h1>Professional Touch Solutions</h1>
+    <p class="sub">
+      我們專注於工業與商用觸控整合，提供 <strong>AMT Touch Panel</strong> 與
+      <strong>PenMount Controller</strong>，協助您打造穩定且高精度的觸控應用。
+    </p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>核心產品</h2>
+      <ul class="product-list">
+        <li>
+          <strong>AMT Touch Panel</strong>
+          高耐用、抗干擾、多尺寸支援，適用於工控、醫療、POS 與自助設備。
+        </li>
+        <li>
+          <strong>PenMount Controller</strong>
+          穩定的觸控控制方案，支援多種作業系統與介面，便於快速整合與量產。
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Inquiry 表單</h2>
+      <form id="inquiryForm">
+        <label>
+          姓名
+          <input name="name" type="text" required />
+        </label>
+        <label>
+          公司
+          <input name="company" type="text" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" required />
+        </label>
+        <label>
+          產品項目
+          <select name="product" required>
+            <option value="">請選擇</option>
+            <option value="AMT Touch Panel">AMT Touch Panel</option>
+            <option value="PenMount Controller">PenMount Controller</option>
+            <option value="Both">Both</option>
+          </select>
+        </label>
+        <label>
+          需求說明
+          <textarea name="message" placeholder="請描述您的專案需求..." required></textarea>
+        </label>
+        <button type="submit" id="submitBtn">送出 Inquiry</button>
+        <div id="formStatus" class="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>© 2026 ACA-Display. All rights reserved.</footer>
+
+  <script>
+    const form = document.getElementById('inquiryForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const API_URL = 'https://script.google.com/macros/s/AKfycbx-awiDaKEKuICPCXTL8f5LBE2h3IF7EW3CdOW07G6SNlXjC0d4ulaonuZcpXhNDouslw/exec';
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusEl.textContent = '';
+      statusEl.className = 'status';
+      submitBtn.disabled = true;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.timestamp = new Date().toISOString();
+
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        statusEl.textContent = '送出成功，我們會盡快與您聯繫。';
+        statusEl.classList.add('success');
+        form.reset();
+      } catch (error) {
+        statusEl.textContent = `送出失敗：${error.message}，請稍後再試。`;
+        statusEl.classList.add('error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
