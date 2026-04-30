@@ -1,95 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<a href="inquiry.html">Send Inquiry</a>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACA-Display | Professional Industrial Touch Supplier</title>
+<title>ACI Display</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1f2937;background:#ffffff}a{text-decoration:none}.container{max-width:1180px;margin:auto;padding:0 24px}.topbar{background:#0b1220;color:#fff;padding:16px 0}.nav{display:flex;justify-content:space-between;align-items:center}.logo{font-size:22px;font-weight:700}.menu a{color:#cbd5e1;margin-left:18px}.hero{background:linear-gradient(135deg,#0b1220,#1d4ed8);color:#fff;padding:90px 0}.hero h1{font-size:48px;line-height:1.1;margin:0 0 16px}.hero p{font-size:18px;max-width:760px;color:#dbeafe}.btn{display:inline-block;padding:14px 20px;border-radius:10px;font-weight:700;margin-right:10px}.btn-primary{background:#fff;color:#1d4ed8}.btn-outline{border:1px solid #fff;color:#fff}.section{padding:70px 0}.section h2{font-size:34px;margin:0 0 14px}.lead{color:#6b7280;max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:28px}.card{border:1px solid #e5e7eb;border-radius:18px;padding:24px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.05)}.card h3{margin-top:0}.tag{display:inline-block;background:#eff6ff;color:#1d4ed8;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}.dark{background:#f8fafc}.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}.list li{margin:10px 0}.cta{background:#0b1220;color:#fff;border-radius:24px;padding:40px}.footer{background:#0b1220;color:#cbd5e1;padding:35px 0;margin-top:40px}@media(max-width:768px){.hero h1{font-size:34px}.two{grid-template-columns:1fr}.menu{display:none}}
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #111;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 60px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.hero button {
+  padding: 12px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+section {
+  padding: 40px;
+}
+
+#inquiry {
+  background: #fafafa;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form select, form textarea {
+  margin: 8px 0;
+  padding: 10px;
+  font-size: 14px;
+}
+
+form button {
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#status {
+  text-align: center;
+  margin-top: 10px;
+  color: green;
+}
 </style>
+
 </head>
+
 <body>
-<header class="topbar">
-<div class="container nav">
-<div class="logo">Touch Solutions</div>
-<nav class="menu">
-<a href="#products">Products</a>
-<a href="#capability">Capability</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-</div>
+
+<header>
+  <h1>ACI Display</h1>
 </header>
 
-<section class="hero">
-<div class="container">
-<h1>Professional Touch Panel & Display Solutions for Global OEM Projects</h1>
-<p>We supply industrial-grade PCAP touch panels, open frame displays, high brightness monitors, and customized integration solutions for automation, medical, kiosk, transportation, and smart retail applications.</p>
-<div style="margin-top:24px">
-<a class="btn btn-primary" href="mailto:sales@touchsolutions.com">Request Quotation</a>
-<a class="btn btn-outline" href="#products">View Products</a>
+<nav>
+  <a href="#">Home</a>
+  <a href="#inquiry">Send Inquiry</a>
+</nav>
+
+<div class="hero">
+  <h2>Industrial Touch Solutions</h2>
+  <p>High quality display products for global clients</p>
+  <button onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">
+    Get Quote
+  </button>
 </div>
-</div>
+
+<section>
+  <h2>Our Products</h2>
+  <p>Replace this section with your product content / JSON rendering</p>
 </section>
 
-<section class="section" id="products">
-<div class="container">
-<h2>Our Product Range</h2>
-<p class="lead">Stable supply, engineering support, and customization for long lifecycle B2B projects.</p>
-<div class="grid">
-<div class="card"><span class="tag">PCAP</span><h3>Projected Capacitive Touch Panel</h3><p>Multi-touch, glove operation, waterproof sealing, anti-glare / anti-fingerprint options.</p></div>
-<div class="card"><span class="tag">DISPLAY</span><h3>Open Frame LCD Display</h3><p>Industrial display modules with HDMI / VGA / DP / LVDS / eDP interface support.</p></div>
-<div class="card"><span class="tag">HIGH BRIGHTNESS</span><h3>Sunlight Readable Monitor</h3><p>1000+ nits brightness solutions for outdoor terminals and harsh environments.</p></div>
-<div class="card"><span class="tag">PenMount</span><h3>RTP controller</h3><p>AMT lucent gel, Optical bonding.</p></div>
-</div>
-</div>
+<!-- Inquiry Section -->
+<section id="inquiry">
+  <h2 style="text-align:center;">Send Inquiry</h2>
+
+  <form id="inquiryForm">
+    <input name="name" placeholder="Full Name" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="company" placeholder="Company Name">
+    <input name="country" placeholder="Country">
+
+    <input name="product" placeholder="Product Model / Interest">
+
+    <select name="quantity">
+      <option value="">Select Quantity</option>
+      <option>1-10 pcs</option>
+      <option>10-100 pcs</option>
+      <option>100+ pcs</option>
+    </select>
+
+    <textarea name="message" placeholder="Your Inquiry"></textarea>
+
+    <button type="submit">Submit Inquiry</button>
+  </form>
+
+  <p id="status"></p>
 </section>
 
-<section class="section dark" id="capability">
-<div class="container two">
-<div>
-<h2>Engineering Capability</h2>
-<ul class="list">
-<li>Custom glass thickness / printing / shape design</li>
-<li>USB / UART controller solutions</li>
-<li>Wide temperature industrial design</li>
-<li>Long-term supply for project continuity</li>
-</ul>
-</div>
-<div>
-<h2>Why Global Buyers Choose Us</h2>
-<ul class="list">
-<li>Fast quotation and responsive communication</li>
-<li>Quality-focused production control</li>
-<li>Flexible MOQ for project sampling</li>
-<li>Experience with OEM / system integrators</li>
-<li>Worldwide shipment support</li>
-</ul>
-</div>
-</div>
-</section>
+<script>
+document.getElementById("inquiryForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-<section class="section" id="about">
-<div class="container">
-<h2>About Touch Solutions</h2>
-<p class="lead">We focus on industrial touch and display applications, helping customers shorten sourcing time and reduce integration risk. Our mission is to provide dependable products with practical engineering support.</p>
-</div>
-</section>
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
 
-<section class="section" id="contact">
-<div class="container">
-<div class="cta">
-<h2>Start Your Project Today</h2>
-<p>Send us your drawing, target size, interface, brightness, and application. We will recommend the right solution.</p>
-<p>Email: sales@touchsolutions.com<br>WhatsApp: +886-000-000-000</p>
-<a class="btn btn-primary" href="mailto:sales@touchsolutions.com">Contact Sales</a>
-</div>
-</div>
-</section>
+  fetch("https://script.google.com/macros/s/AKfycbx-awiDaKEKuICPCXTL8f5LBE2h3IF7EW3CdOW07G6SNlXjC0d4ulaonuZcpXhNDouslw/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById("status").innerText = "Inquiry sent successfully!";
+    this.reset();
+  })
+  .catch(err => {
+    document.getElementById("status").innerText = "Error, please try again.";
+  });
+});
+</script>
 
-<footer class="footer">
-<div class="container">© 2026 ACA-Display touch solutions. All Rights Reserved.</div>
-</footer>
 </body>
 </html>
