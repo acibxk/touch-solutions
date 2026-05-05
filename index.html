@@ -216,11 +216,12 @@
       data.timestamp = new Date().toISOString();
 
       try {
+        const body = new URLSearchParams(data).toString();
         const response = await fetch(API_URL, {
           method: 'POST',
           mode: 'cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body
         });
 
         if (!response.ok) {
@@ -231,7 +232,7 @@
         statusEl.classList.add('success');
         form.reset();
       } catch (error) {
-        statusEl.textContent = `送出失敗：${error.message}，請稍後再試。`;
+        statusEl.textContent = `送出失敗：${error.message}。常見原因是 Google Apps Script 尚未公開部署，或 CORS/權限設定未開放。`;
         statusEl.classList.add('error');
       } finally {
         submitBtn.disabled = false;
