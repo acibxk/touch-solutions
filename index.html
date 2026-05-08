@@ -3,10 +3,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Aca-Display</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aca-Display | Industrial Display Solutions</title>
 
   <style>
 
@@ -14,12 +15,13 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:Arial, sans-serif;
+      scroll-behavior:smooth;
     }
 
     body{
-      color:#111;
-      background:#fff;
+      font-family:Arial, Helvetica, sans-serif;
+      background:#0f1115;
+      color:#ffffff;
       line-height:1.6;
     }
 
@@ -33,30 +35,32 @@
       display:block;
     }
 
-    /* HEADER */
+    /* NAVBAR */
 
     header{
       position:fixed;
       width:100%;
       top:0;
       left:0;
-      background:white;
-      border-bottom:1px solid #eee;
       z-index:1000;
+      background:rgba(10,10,10,0.85);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
     .navbar{
       max-width:1200px;
       margin:auto;
+      padding:18px 24px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:20px;
     }
 
     .logo{
       font-size:24px;
-      font-weight:bold;
+      font-weight:700;
+      letter-spacing:1px;
     }
 
     .nav-links{
@@ -65,48 +69,85 @@
     }
 
     .nav-links a{
-      color:#333;
+      color:#ccc;
+      transition:0.3s;
       font-size:15px;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
     }
 
     /* HERO */
 
     .hero{
-      height:100vh;
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:20px;
-      background:#f5f5f5;
+      padding:120px 20px 80px;
+      background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      <img src="images/hero.jpg">;
+      background-size:cover;
+      background-position:center;
     }
 
     .hero-content{
-      max-width:800px;
+      max-width:900px;
     }
 
     .hero h1{
-      font-size:56px;
-      margin-bottom:20px;
+      font-size:68px;
+      line-height:1.1;
+      margin-bottom:25px;
     }
 
     .hero p{
+      color:#cfcfcf;
       font-size:20px;
-      color:#666;
-      margin-bottom:30px;
+      max-width:750px;
+      margin:auto;
+      margin-bottom:40px;
     }
 
-    .hero button{
-      background:#111;
-      color:white;
-      padding:15px 35px;
-      border:none;
-      border-radius:8px;
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 34px;
+      border-radius:10px;
       font-size:16px;
       cursor:pointer;
+      transition:0.3s;
+      border:none;
     }
 
-    /* SECTION */
+    .btn-primary{
+      background:#ffffff;
+      color:#111;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-outline{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.3);
+      color:#fff;
+    }
+
+    .btn-outline:hover{
+      background:rgba(255,255,255,0.08);
+    }
+
+    /* GENERAL */
 
     section{
       padding:100px 20px;
@@ -117,81 +158,145 @@
       margin:auto;
     }
 
+    .section-tag{
+      color:#7aa2ff;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+
     .section-title{
-      font-size:40px;
+      font-size:42px;
       margin-bottom:20px;
     }
 
     .section-desc{
-      color:#666;
-      margin-bottom:50px;
+      color:#9ca3af;
+      max-width:750px;
+      margin-bottom:60px;
     }
 
     /* PRODUCTS */
 
     .product-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:30px;
     }
 
     .product-card{
-      border:1px solid #eee;
-      border-radius:12px;
+      background:#171a21;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
       overflow:hidden;
-      transition:0.3s;
-      background:white;
+      transition:0.35s;
     }
 
     .product-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transform:translateY(-8px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.35);
     }
 
     .product-card img{
-      height:220px;
+      height:240px;
       object-fit:cover;
     }
 
-    .product-info{
-      padding:20px;
+    .product-content{
+      padding:24px;
     }
 
-    .product-info h3{
-      margin-bottom:10px;
+    .product-content h3{
+      margin-bottom:12px;
+      font-size:24px;
     }
 
-    .product-info p{
-      color:#666;
-      font-size:14px;
+    .product-content p{
+      color:#a0a0a0;
+      font-size:15px;
     }
 
     /* ABOUT */
 
     .about{
-      background:#fafafa;
+      background:#14171d;
     }
 
-    .about p{
-      max-width:800px;
-      color:#555;
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about-text p{
+      color:#b5b5b5;
+      margin-bottom:20px;
+    }
+
+    .about-image img{
+      border-radius:20px;
+    }
+
+    /* ADVANTAGE */
+
+    .advantage-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+    }
+
+    .advantage-card{
+      background:#171a21;
+      padding:30px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .advantage-card h3{
+      margin-bottom:12px;
+      font-size:22px;
+    }
+
+    .advantage-card p{
+      color:#9ca3af;
+      font-size:15px;
     }
 
     /* INQUIRY */
+
+    .inquiry{
+      background:#101317;
+    }
+
+    .inquiry-wrapper{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:start;
+    }
+
+    .contact-info p{
+      color:#b5b5b5;
+      margin-bottom:16px;
+    }
 
     .inquiry-form{
       display:flex;
       flex-direction:column;
       gap:20px;
-      max-width:700px;
     }
 
     .inquiry-form input,
     .inquiry-form textarea{
-      padding:15px;
-      border:1px solid #ddd;
-      border-radius:8px;
-      font-size:16px;
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:12px;
+      background:#1a1f28;
+      color:#fff;
+      font-size:15px;
     }
 
     .inquiry-form textarea{
@@ -199,56 +304,106 @@
     }
 
     .inquiry-form button{
-      background:#111;
-      color:white;
-      padding:15px;
+      background:#ffffff;
+      color:#111;
+      padding:16px;
       border:none;
-      border-radius:8px;
+      border-radius:12px;
       font-size:16px;
       cursor:pointer;
+      transition:0.3s;
+    }
+
+    .inquiry-form button:hover{
+      opacity:0.9;
     }
 
     #formStatus{
-      color:green;
+      color:#8cffb2;
       font-size:14px;
+    }
+
+    /* WHATSAPP BUTTON */
+
+    .whatsapp{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+      z-index:999;
     }
 
     /* FOOTER */
 
     footer{
-      background:#111;
-      color:white;
-      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.06);
       padding:40px 20px;
+      text-align:center;
+      color:#9ca3af;
+      font-size:14px;
+      background:#0d0f13;
     }
 
     /* MOBILE */
 
-    @media(max-width:768px){
+    @media(max-width:900px){
 
       .hero h1{
-        font-size:40px;
+        font-size:48px;
       }
 
-      .hero p{
-        font-size:18px;
+      .about-grid,
+      .inquiry-wrapper{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .navbar{
+        flex-direction:column;
+        gap:14px;
       }
 
       .nav-links{
-        gap:15px;
-        font-size:14px;
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:32px;
       }
 
     }
 
   </style>
+
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVBAR -->
 
   <header>
+
     <div class="navbar">
 
       <div class="logo">
@@ -258,10 +413,12 @@
       <div class="nav-links">
         <a href="#products">Products</a>
         <a href="#about">About</a>
+        <a href="#advantages">Advantages</a>
         <a href="#inquiry">Inquiry</a>
       </div>
 
     </div>
+
   </header>
 
   <!-- HERO -->
@@ -271,16 +428,31 @@
     <div class="hero-content">
 
       <h1>
-        Professional Industrial Display Solutions
+        Industrial Display Solutions
       </h1>
 
       <p>
-        Reliable display products for industrial, medical, and embedded applications.
+        Professional display products for industrial automation, medical systems,
+        kiosks, embedded applications, and AI edge computing environments.
       </p>
 
-      <button onclick="document.getElementById('inquiry').scrollIntoView();">
-        Contact Us
-      </button>
+      <div class="hero-buttons">
+
+        <button
+          class="btn btn-primary"
+          onclick="document.getElementById('inquiry').scrollIntoView();"
+        >
+          Send Inquiry
+        </button>
+
+        <button
+          class="btn btn-outline"
+          onclick="document.getElementById('products').scrollIntoView();"
+        >
+          View Products
+        </button>
+
+      </div>
 
     </div>
 
@@ -292,45 +464,55 @@
 
     <div class="container">
 
-      <h2 class="section-title">
+      <div class="section-tag">
         Products
+      </div>
+
+      <h2 class="section-title">
+        Featured Products
       </h2>
 
       <p class="section-desc">
-        Industrial display solutions for various applications.
+        Reliable industrial-grade display solutions for global customers.
       </p>
 
       <div class="product-grid">
 
         <div class="product-card">
 
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+          <img src="images/industrial monitor.jpg">
 
-          <div class="product-info">
+          <div class="product-content">
             <h3>Industrial Monitor</h3>
-            <p>High reliability industrial touch display.</p>
+            <p>
+              Rugged touch monitor designed for industrial environments.
+            </p>
           </div>
 
         </div>
 
         <div class="product-card">
 
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+           <img src="images/medical device.jpg">
 
-          <div class="product-info">
+          <div class="product-content">
             <h3>Medical Display</h3>
-            <p>Medical grade display for healthcare environments.</p>
+            <p>
+              Medical-grade display solution for healthcare applications.
+            </p>
           </div>
 
         </div>
 
         <div class="product-card">
 
-          <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931">
+            <img src="images/open frame.jpg">
 
-          <div class="product-info">
+          <div class="product-content">
             <h3>Open Frame Display</h3>
-            <p>Embedded display solutions for kiosk systems.</p>
+            <p>
+              Flexible embedded display for kiosk and automation systems.
+            </p>
           </div>
 
         </div>
@@ -347,14 +529,91 @@
 
     <div class="container">
 
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <div class="section-tag">
+            About
+          </div>
+
+          <h2 class="section-title">
+            Your Professional Display Partner
+          </h2>
+
+          <p>
+            We specialize in industrial display solutions with long-term supply support,
+            flexible customization, and stable quality for global customers.
+          </p>
+
+          <p>
+            Our products are widely used in medical systems, smart factories,
+            transportation, and embedded computing applications.
+          </p>
+
+        </div>
+
+        <div class="about-image">
+
+           <img src="images/touch.jpg">
+          
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ADVANTAGES -->
+
+  <section id="advantages">
+
+    <div class="container">
+
+      <div class="section-tag">
+        Advantages
+      </div>
+
       <h2 class="section-title">
-        About Us
+        Why Choose Us
       </h2>
 
-      <p>
-        We provide professional industrial display solutions with reliable quality,
-        flexible customization, and long-term supply support for global customers.
+      <p class="section-desc">
+        Long-term cooperation focused on stability, communication, and reliability.
       </p>
+
+      <div class="advantage-grid">
+
+        <div class="advantage-card">
+          <h3>Stable Supply</h3>
+          <p>
+            Long product lifecycle support for industrial applications.
+          </p>
+        </div>
+
+        <div class="advantage-card">
+          <h3>Flexible Customization</h3>
+          <p>
+            Touch, brightness, mechanical, and interface customization.
+          </p>
+        </div>
+
+        <div class="advantage-card">
+          <h3>Fast Response</h3>
+          <p>
+            Professional support for quotation and technical discussions.
+          </p>
+        </div>
+
+        <div class="advantage-card">
+          <h3>Global Service</h3>
+          <p>
+            Supporting worldwide customers and projects.
+          </p>
+        </div>
+
+      </div>
 
     </div>
 
@@ -362,75 +621,111 @@
 
   <!-- INQUIRY -->
 
-  <section id="inquiry">
+  <section class="inquiry" id="inquiry">
 
     <div class="container">
 
-      <h2 class="section-title">
-        Inquiry
-      </h2>
+      <div class="inquiry-wrapper">
 
-      <p class="section-desc">
-        Please leave your message and we will contact you shortly.
-      </p>
+        <div class="contact-info">
 
-      <form
-        id="inquiryForm"
-        class="inquiry-form"
-        action="https://formspree.io/f/mnjwblrl"
-        method="POST"
-      >
+          <div class="section-tag">
+            Contact
+          </div>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
+          <h2 class="section-title">
+            Send Your Inquiry
+          </h2>
+
+          <p>
+            Please provide your project requirements and contact information.
+          </p>
+
+          <p>
+            We will reply shortly with product suggestions and quotation support.
+          </p>
+
+          <p>
+            Email: garylee@tutamail.com
+          </p>
+
+        </div>
+
+        <form
+          id="inquiryForm"
+          class="inquiry-form"
+          action="https://formspree.io/f/mnjwblrl"
+          method="POST"
         >
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+          >
 
-        <input
-          type="text"
-          name="company"
-          placeholder="Company Name"
-        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          >
 
-        <textarea
-          name="message"
-          rows="6"
-          placeholder="Your Inquiry"
-          required
-        ></textarea>
+          <input
+            type="text"
+            name="company"
+            placeholder="Company Name"
+          >
 
-        <input type="hidden" name="_subject" value="New Inquiry">
+          <textarea
+            name="message"
+            rows="6"
+            placeholder="Please describe your project requirements"
+            required
+          ></textarea>
 
-        <input type="text" name="_gotcha" style="display:none">
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Website Inquiry"
+          >
 
-        <button type="submit" id="submitBtn">
-          Send Inquiry
-        </button>
+          <input
+            type="text"
+            name="_gotcha"
+            style="display:none"
+          >
 
-        <p id="formStatus"></p>
+          <button type="submit" id="submitBtn">
+            Send Inquiry
+          </button>
 
-      </form>
+          <p id="formStatus"></p>
+
+        </form>
+
+      </div>
 
     </div>
 
   </section>
 
+  <!-- WHATSAPP -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/886937830944"
+    target="_blank"
+  >
+    💬
+  </a>
+
   <!-- FOOTER -->
 
   <footer>
 
-    <p>
-      © 2026 Aca-Display. All Rights Reserved.
-    </p>
+    © 2026 Aca-Display. All Rights Reserved.
 
   </footer>
 
