@@ -1,233 +1,488 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aca-Display Industrial Touch Monitor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background: #0b0f14;
-}
+  <title>Aca-Display</title>
 
-/* HERO */
-.hero {
-  height: 100vh;
-  background-image:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
-    url("images/industrial-monitor.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-}
+  <style>
 
-.hero-content {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 40px;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-.badge {
-  border: 1px solid rgba(255,255,255,0.3);
-  display: inline-block;
-  padding: 6px 10px;
-  font-size: 12px;
-  margin-bottom: 15px;
-}
+    body{
+      color:#111;
+      background:#fff;
+      line-height:1.6;
+    }
 
-h1 {
-  font-size: 42px;
-  margin: 10px 0;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.subtext {
-  max-width: 600px;
-  opacity: 0.85;
-}
+    img{
+      width:100%;
+      display:block;
+    }
 
-.cta-group {
-  margin-top: 20px;
-}
+    /* HEADER */
 
-.btn {
-  display: inline-block;
-  padding: 12px 18px;
-  margin-right: 10px;
-  text-decoration: none;
-  border-radius: 4px;
-}
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      background:white;
+      border-bottom:1px solid #eee;
+      z-index:1000;
+    }
 
-.primary {
-  background: #00a8ff;
-  color: black;
-}
+    .navbar{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px;
+    }
 
-.secondary {
-  border: 1px solid #fff;
-  color: #fff;
-}
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+    }
 
-/* SECTIONS */
-section {
-  padding: 80px 40px;
-}
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
 
-h2 {
-  margin-bottom: 30px;
-}
+    .nav-links a{
+      color:#333;
+      font-size:15px;
+    }
 
-/* PRODUCTS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+    /* HERO */
 
-.card {
-  background: #111826;
-  padding: 20px;
-  border-radius: 6px;
-}
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      background:#f5f5f5;
+    }
 
-.card button {
-  margin-top: 10px;
-  padding: 10px;
-  width: 100%;
-  background: #00a8ff;
-  border: none;
-  cursor: pointer;
-}
+    .hero-content{
+      max-width:800px;
+    }
 
-/* FORM */
-form {
-  max-width: 600px;
-  margin: auto;
-  display: grid;
-  gap: 10px;
-}
+    .hero h1{
+      font-size:56px;
+      margin-bottom:20px;
+    }
 
-input, select, textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-}
+    .hero p{
+      font-size:20px;
+      color:#666;
+      margin-bottom:30px;
+    }
 
-button[type="submit"] {
-  background: #00a8ff;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-}
+    .hero button{
+      background:#111;
+      color:white;
+      padding:15px 35px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  opacity: 0.6;
-}
-</style>
+    /* SECTION */
+
+    section{
+      padding:100px 20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .section-desc{
+      color:#666;
+      margin-bottom:50px;
+    }
+
+    /* PRODUCTS */
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .product-card{
+      border:1px solid #eee;
+      border-radius:12px;
+      overflow:hidden;
+      transition:0.3s;
+      background:white;
+    }
+
+    .product-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .product-card img{
+      height:220px;
+      object-fit:cover;
+    }
+
+    .product-info{
+      padding:20px;
+    }
+
+    .product-info h3{
+      margin-bottom:10px;
+    }
+
+    .product-info p{
+      color:#666;
+      font-size:14px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      background:#fafafa;
+    }
+
+    .about p{
+      max-width:800px;
+      color:#555;
+    }
+
+    /* INQUIRY */
+
+    .inquiry-form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      max-width:700px;
+    }
+
+    .inquiry-form input,
+    .inquiry-form textarea{
+      padding:15px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    .inquiry-form textarea{
+      resize:vertical;
+    }
+
+    .inquiry-form button{
+      background:#111;
+      color:white;
+      padding:15px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    #formStatus{
+      color:green;
+      font-size:14px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .nav-links{
+        gap:15px;
+        font-size:14px;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="badge">Industrial Touch Display Manufacturer</div>
+  <!-- HEADER -->
 
-    <h1>Industrial Touch Monitors<br>Built for 24/7 Environments</h1>
+  <header>
+    <div class="navbar">
 
-    <p class="subtext">
-      Open-frame / Panel-mount / High brightness / Waterproof solutions for OEM & industrial systems.
+      <div class="logo">
+        ACI Display
+      </div>
+
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#inquiry">Inquiry</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Professional Industrial Display Solutions
+      </h1>
+
+      <p>
+        Reliable display products for industrial, medical, and embedded applications.
+      </p>
+
+      <button onclick="document.getElementById('inquiry').scrollIntoView();">
+        Contact Us
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Products
+      </h2>
+
+      <p class="section-desc">
+        Industrial display solutions for various applications.
+      </p>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+
+          <div class="product-info">
+            <h3>Industrial Monitor</h3>
+            <p>High reliability industrial touch display.</p>
+          </div>
+
+        </div>
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+
+          <div class="product-info">
+            <h3>Medical Display</h3>
+            <p>Medical grade display for healthcare environments.</p>
+          </div>
+
+        </div>
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931">
+
+          <div class="product-info">
+            <h3>Open Frame Display</h3>
+            <p>Embedded display solutions for kiosk systems.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        About Us
+      </h2>
+
+      <p>
+        We provide professional industrial display solutions with reliable quality,
+        flexible customization, and long-term supply support for global customers.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- INQUIRY -->
+
+  <section id="inquiry">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Inquiry
+      </h2>
+
+      <p class="section-desc">
+        Please leave your message and we will contact you shortly.
+      </p>
+
+      <form
+        id="inquiryForm"
+        class="inquiry-form"
+        action="https://formspree.io/f/mnjwblrl"
+        method="POST"
+      >
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        >
+
+        <input
+          type="text"
+          name="company"
+          placeholder="Company Name"
+        >
+
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="Your Inquiry"
+          required
+        ></textarea>
+
+        <input type="hidden" name="_subject" value="New Inquiry">
+
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" id="submitBtn">
+          Send Inquiry
+        </button>
+
+        <p id="formStatus"></p>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Aca-Display. All Rights Reserved.
     </p>
 
-    <div class="cta-group">
-      <a class="btn primary" href="#inquiry">Get Quote</a>
-      <a class="btn secondary" href="#products">View Products</a>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<!-- PRODUCTS -->
-<section id="products">
-  <h2>Product Series</h2>
+  <script>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Open Frame</h3>
-      <p>10.1–32 inch / HDMI / USB touch</p>
-      <button onclick="location.href='#inquiry'">Request Quote</button>
-    </div>
+    const form = document.getElementById('inquiryForm');
+    const status = document.getElementById('formStatus');
+    const button = document.getElementById('submitBtn');
 
-    <div class="card">
-      <h3>Panel Mount</h3>
-      <p>Industrial integration / OEM design</p>
-      <button onclick="location.href='#inquiry'">Request Quote</button>
-    </div>
+    form.addEventListener('submit', async function(e){
 
-    <div class="card">
-      <h3>Waterproof</h3>
-      <p>IP65 / Outdoor / High brightness</p>
-      <button onclick="location.href='#inquiry'">Request Quote</button>
-    </div>
-  </div>
-</section>
+      e.preventDefault();
 
-<!-- SPEC -->
-<section>
-  <h2>Industrial Grade Features</h2>
-  <ul>
-    <li>24/7 continuous operation</li>
-    <li>Wide temperature support</li>
-    <li>High brightness options</li>
-    <li>Multi-touch capacitive/resistive</li>
-    <li>OEM / ODM customization</li>
-  </ul>
-</section>
+      button.disabled = true;
+      button.innerText = 'Sending...';
 
-<!-- USE CASE -->
-<section>
-  <h2>Applications</h2>
-  <div class="grid">
-    <div>Kiosk systems</div>
-    <div>Factory automation</div>
-    <div>Retail POS</div>
-    <div>Outdoor signage</div>
-  </div>
-</section>
+      const data = new FormData(form);
 
-<!-- INQUIRY FORM (FORMSPREE) -->
-<section id="inquiry">
-  <h2>Request a Quote</h2>
+      try{
 
-  <form action="https://formspree.io/f/mnjwblrl" method="POST">
+        const response = await fetch(form.action,{
+          method:'POST',
+          body:data,
+          headers:{
+            'Accept':'application/json'
+          }
+        });
 
-    <input type="text" name="name" placeholder="Name" required>
+        if(response.ok){
 
-    <input type="email" name="email" placeholder="Email" required>
+          status.innerHTML = 'Inquiry sent successfully.';
+          form.reset();
 
-    <input type="text" name="company" placeholder="Company">
+        }else{
 
-    <select name="product">
-      <option>Open Frame</option>
-      <option>Panel Mount</option>
-      <option>Waterproof</option>
-    </select>
+          status.innerHTML = 'Failed to send inquiry.';
 
-    <textarea name="message" placeholder="Requirement / quantity / size"></textarea>
+        }
 
-    <button type="submit">Submit Inquiry</button>
+      }catch(error){
 
-  </form>
-</section>
+        status.innerHTML = 'Network error.';
 
-<footer>
-  © Aca-Display
-</footer>
+      }
+
+      button.disabled = false;
+      button.innerText = 'Send Inquiry';
+
+    });
+
+  </script>
 
 </body>
 </html>
+```
