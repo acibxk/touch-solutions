@@ -1,243 +1,488 @@
+```html
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACA-Display | Touch Solution</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ACI Display</title>
+
   <style>
-    :root {
-      --bg: #0b1220;
-      --card: #121b2e;
-      --accent: #2dd4bf;
-      --text: #e6edf7;
-      --muted: #9fb0ca;
-      --border: #284062;
-      --danger: #fb7185;
-      --ok: #34d399;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
-      background: linear-gradient(180deg, #0b1220 0%, #0e1526 100%);
-      color: var(--text);
-      line-height: 1.6;
+    body{
+      color:#111;
+      background:#fff;
+      line-height:1.6;
     }
 
-    header {
-      padding: 72px 20px 48px;
-      text-align: center;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--accent);
-      font-size: 14px;
-      margin-bottom: 16px;
+    img{
+      width:100%;
+      display:block;
     }
 
-    h1 { font-size: clamp(34px, 5vw, 54px); margin: 0; }
+    /* HEADER */
 
-    .sub {
-      max-width: 760px;
-      margin: 16px auto 0;
-      color: var(--muted);
-      font-size: 18px;
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      background:white;
+      border-bottom:1px solid #eee;
+      z-index:1000;
     }
 
-    main {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 20px 72px;
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .navbar{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    .logo{
+      font-size:24px;
+      font-weight:bold;
     }
 
-    .card h2 { margin-top: 0; font-size: 24px; }
-
-    .product-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 14px;
+    .nav-links{
+      display:flex;
+      gap:30px;
     }
 
-    .product-list li {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px;
-      background: rgba(255, 255, 255, 0.02);
+    .nav-links a{
+      color:#333;
+      font-size:15px;
     }
 
-    .product-list strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 4px;
-      color: #ccf8f2;
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      background:#f5f5f5;
     }
 
-    form { display: grid; gap: 12px; }
-
-    label { font-weight: 600; font-size: 14px; }
-
-    input, textarea, select {
-      width: 100%;
-      margin-top: 6px;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #0d1728;
-      color: var(--text);
-      font: inherit;
+    .hero-content{
+      max-width:800px;
     }
 
-    textarea { min-height: 120px; resize: vertical; }
-
-    button {
-      margin-top: 8px;
-      border: 0;
-      border-radius: 10px;
-      padding: 12px 18px;
-      font-size: 16px;
-      font-weight: 700;
-      background: var(--accent);
-      color: #07211d;
-      cursor: pointer;
+    .hero h1{
+      font-size:56px;
+      margin-bottom:20px;
     }
 
-    button:disabled { opacity: 0.6; cursor: wait; }
-
-    .status {
-      min-height: 22px;
-      font-weight: 600;
-      margin-top: 4px;
+    .hero p{
+      font-size:20px;
+      color:#666;
+      margin-bottom:30px;
     }
 
-    .status.error { color: var(--danger); }
-    .status.success { color: var(--ok); }
-
-    footer {
-      text-align: center;
-      padding: 14px 20px 34px;
-      color: var(--muted);
-      font-size: 14px;
+    .hero button{
+      background:#111;
+      color:white;
+      padding:15px 35px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
     }
+
+    /* SECTION */
+
+    section{
+      padding:100px 20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .section-desc{
+      color:#666;
+      margin-bottom:50px;
+    }
+
+    /* PRODUCTS */
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .product-card{
+      border:1px solid #eee;
+      border-radius:12px;
+      overflow:hidden;
+      transition:0.3s;
+      background:white;
+    }
+
+    .product-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .product-card img{
+      height:220px;
+      object-fit:cover;
+    }
+
+    .product-info{
+      padding:20px;
+    }
+
+    .product-info h3{
+      margin-bottom:10px;
+    }
+
+    .product-info p{
+      color:#666;
+      font-size:14px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      background:#fafafa;
+    }
+
+    .about p{
+      max-width:800px;
+      color:#555;
+    }
+
+    /* INQUIRY */
+
+    .inquiry-form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      max-width:700px;
+    }
+
+    .inquiry-form input,
+    .inquiry-form textarea{
+      padding:15px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    .inquiry-form textarea{
+      resize:vertical;
+    }
+
+    .inquiry-form button{
+      background:#111;
+      color:white;
+      padding:15px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    #formStatus{
+      color:green;
+      font-size:14px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .nav-links{
+        gap:15px;
+        font-size:14px;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
+
+  <!-- HEADER -->
+
   <header>
-    <div class="badge">ACA-Display</div>
-    <h1>Professional Touch Solutions</h1>
-    <p class="sub">
-      我們專注於工業與商用觸控整合，提供 <strong>AMT Touch Panel</strong> 與
-      <strong>PenMount Controller</strong>，協助您打造穩定且高精度的觸控應用。
-    </p>
+    <div class="navbar">
+
+      <div class="logo">
+        ACI Display
+      </div>
+
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#inquiry">Inquiry</a>
+      </div>
+
+    </div>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>核心產品</h2>
-      <ul class="product-list">
-        <li>
-          <strong>AMT Touch Panel</strong>
-          高耐用、抗干擾、多尺寸支援，適用於工控、醫療、POS 與自助設備。
-        </li>
-        <li>
-          <strong>PenMount Controller</strong>
-          穩定的觸控控制方案，支援多種作業系統與介面，便於快速整合與量產。
-        </li>
-      </ul>
-    </section>
+  <!-- HERO -->
 
-    <section class="card">
-      <h2>Inquiry 表單</h2>
-      <form id="inquiryForm">
-        <label>
-          姓名
-          <input name="name" type="text" required />
-        </label>
-        <label>
-          公司
-          <input name="company" type="text" required />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" required />
-        </label>
-        <label>
-          產品項目
-          <select name="product" required>
-            <option value="">請選擇</option>
-            <option value="AMT Touch Panel">AMT Touch Panel</option>
-            <option value="PenMount Controller">PenMount Controller</option>
-            <option value="Both">Both</option>
-          </select>
-        </label>
-        <label>
-          需求說明
-          <textarea name="message" placeholder="請描述您的專案需求..." required></textarea>
-        </label>
-        <button type="submit" id="submitBtn">送出 Inquiry</button>
-        <div id="formStatus" class="status" aria-live="polite"></div>
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Professional Industrial Display Solutions
+      </h1>
+
+      <p>
+        Reliable display products for industrial, medical, and embedded applications.
+      </p>
+
+      <button onclick="document.getElementById('inquiry').scrollIntoView();">
+        Contact Us
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Products
+      </h2>
+
+      <p class="section-desc">
+        Industrial display solutions for various applications.
+      </p>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+
+          <div class="product-info">
+            <h3>Industrial Monitor</h3>
+            <p>High reliability industrial touch display.</p>
+          </div>
+
+        </div>
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+
+          <div class="product-info">
+            <h3>Medical Display</h3>
+            <p>Medical grade display for healthcare environments.</p>
+          </div>
+
+        </div>
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931">
+
+          <div class="product-info">
+            <h3>Open Frame Display</h3>
+            <p>Embedded display solutions for kiosk systems.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        About Us
+      </h2>
+
+      <p>
+        We provide professional industrial display solutions with reliable quality,
+        flexible customization, and long-term supply support for global customers.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- INQUIRY -->
+
+  <section id="inquiry">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Inquiry
+      </h2>
+
+      <p class="section-desc">
+        Please leave your message and we will contact you shortly.
+      </p>
+
+      <form
+        id="inquiryForm"
+        class="inquiry-form"
+        action="https://formspree.io/f/mnjwblrl"
+        method="POST"
+      >
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        >
+
+        <input
+          type="text"
+          name="company"
+          placeholder="Company Name"
+        >
+
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="Your Inquiry"
+          required
+        ></textarea>
+
+        <input type="hidden" name="_subject" value="New Inquiry">
+
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" id="submitBtn">
+          Send Inquiry
+        </button>
+
+        <p id="formStatus"></p>
+
       </form>
-    </section>
-  </main>
 
-  <footer>© 2026 ACA-Display. All rights reserved.</footer>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 ACI Display. All Rights Reserved.
+    </p>
+
+  </footer>
 
   <script>
+
     const form = document.getElementById('inquiryForm');
-    const statusEl = document.getElementById('formStatus');
-    const submitBtn = document.getElementById('submitBtn');
-    const API_URL = 'https://script.google.com/macros/s/AKfycbz4ERnpk5DOtxFtGC-l_lDJT5dBxerT14siDa8mwAeGfWFM2WKZ7xSAOEZuRzLye4iqdw/exec';
+    const status = document.getElementById('formStatus');
+    const button = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      statusEl.textContent = '';
-      statusEl.className = 'status';
-      submitBtn.disabled = true;
+    form.addEventListener('submit', async function(e){
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      data.timestamp = new Date().toISOString();
+      e.preventDefault();
 
-      try {
-        const body = new URLSearchParams(data).toString();
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          mode: 'cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body
+      button.disabled = true;
+      button.innerText = 'Sending...';
+
+      const data = new FormData(form);
+
+      try{
+
+        const response = await fetch(form.action,{
+          method:'POST',
+          body:data,
+          headers:{
+            'Accept':'application/json'
+          }
         });
 
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
+        if(response.ok){
+
+          status.innerHTML = 'Inquiry sent successfully.';
+          form.reset();
+
+        }else{
+
+          status.innerHTML = 'Failed to send inquiry.';
+
         }
 
-        statusEl.textContent = '送出成功，我們會盡快與您聯繫。';
-        statusEl.classList.add('success');
-        form.reset();
-      } catch (error) {
-        statusEl.textContent = `送出失敗：${error.message}。常見原因是 Google Apps Script 尚未公開部署，或 CORS/權限設定未開放。`;
-        statusEl.classList.add('error');
-      } finally {
-        submitBtn.disabled = false;
+      }catch(error){
+
+        status.innerHTML = 'Network error.';
+
       }
+
+      button.disabled = false;
+      button.innerText = 'Send Inquiry';
+
     });
+
   </script>
+
 </body>
 </html>
+```
